@@ -1,0 +1,57 @@
+<!-- Controller allias (useful when it is nested )-->
+<!-- https://thinkster.io/a-better-way-to-learn-angularjs/controllers -->
+<!-- https://toddmotto.com/digging-into-angulars-controller-as-syntax/ -->
+<!--https://thinkster.io/egghead/defining-a-method-on-the-scope-->
+<!--http://blogs.msmvps.com/deborahk/angularjs-101-ways-to-create-a-controller-actually-8/-->
+<!--https://www.youtube.com/watch?v=zKkUN-mJtPQ&list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl-->
+<html>
+
+<script src="angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+<script type="text/javascript">
+
+/*
+
+angular.module('app', []).controller('MainCtrl',function($scope){
+    //We can pass argument $scope or not through "this" key word scope variables can be accessed
+    var self = this;
+    self.message = 'hello';
+
+    self.changeMessage = function(message){
+        self.message = message;
+    }
+
+});
+
+*/
+
+
+var app = angular.module("app", []);
+app.controller("MainCtrl",function ($scope) {
+    var self = this;
+    self.message = "hello";
+    self.changeMessage = function(message){
+        self.message = message;
+    }
+});
+
+
+</script>
+
+<body>
+
+    <div ng-app="app">
+        <h1>Controllers</h1>
+        <div ng-controller="MainCtrl as main">
+            <p>Hi, {{ main.message }}</p>
+            <form ng-submit="main.changeMessage(main.newMessage)">
+                <input type="text" ng-model="main.newMessage">
+                <button type="submit">Change Message</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+

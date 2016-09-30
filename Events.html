@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<title>Events</title>
+<script src="angular.min.js"></script>
+<body ng-app="myApp">
+    <!--div ng-app="myApp" ng-controller="myCtrl">
+        <h4 ng-mousemove="count = count + 1">Mouse Over Me!</h4>
+        <h6>{{ count }}</h6>
+    </div-->
+
+    <div ng-controller="myCtrl">
+        <button ng-click="count = count + 1">Click Me! to Increase the Count</button>
+        <p>{{ count }}</p>
+    </div>
+
+    <div ng-controller="myCtrl1">
+        <h1 ng-mousemove="myFunc($event)">Mouse Over Me!</h1>
+        <p>Coordinates: {{x + ', ' + y}}</p>
+    </div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+});
+
+app.controller('myCtrl1', function($scope) {
+    $scope.myFunc = function(myE) {
+        $scope.x = myE.clientX;
+        $scope.y = myE.clientY;
+    }
+});
+
+</script>
+
+
+
+</body>
+</html>

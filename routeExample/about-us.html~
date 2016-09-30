@@ -1,0 +1,18 @@
+<html>
+<head>
+<script src="js/angular.min.js"></script>
+
+<script>
+
+var app = angular.module("helloApp",['ngRoute']);
+
+app.config(function($routeProvider){
+    $routeProvider
+    .when('/about-us', { controller:'aboutController', templateUrl:'/about-us.html'});
+});
+
+</script>
+
+</head>
+<body>
+<div ng-controller>

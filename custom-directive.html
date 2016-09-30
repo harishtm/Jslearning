@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script>
+
+var app = angular.module("greeting",[]);
+/* Restriction with "A" attribute */
+app.directive("welcome", function(){
+    return {
+        restrict : 'A',
+        link : function(){
+            alert("Custom Attribute Directive");
+        }
+    }
+});
+/* Restriction with "C" Class */
+app.directive("welcomeclass", function(){
+    return {
+        restrict : 'C',
+        link : function(){
+            alert("Custom Class Directive");
+        }
+    }
+});
+
+
+</script>
+
+</head>
+<body ng-app="greeting">
+<div welcome></div>
+<div class="welcomeclass"></div>
+
+</body>
+</html>
+

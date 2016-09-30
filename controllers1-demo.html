@@ -1,0 +1,55 @@
+<!-- Differnt ways of defining controllers (Own)-->
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script>
+
+var myapp = angular.module("myfirstapp",[]);
+
+/* Defining controllers without using module ( First Way )*/
+
+/*var namedisplay = function($scope){
+    $scope.firstName = ''
+    $scope.lastName = ''
+
+    $scope.getFullName = function()
+    {
+        return $scope.firstName + " " + $scope.lastName;
+    };
+
+}*/
+
+/* Using module defining controllers ( Second Way )*/
+
+myapp.controller("namedisplay",function($scope){
+    $scope.firstName = '';
+    $scope.lastName = '';
+    $scope.getFullName = function()
+    {
+        return this.firstName + " " + this.lastName;
+    }
+})
+
+/* Changing the {{ }} symbol to [[ ]] to avoid django template engine */
+
+myapp.config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('[[')
+    $interpolateProvider.endSymbol(']]')
+});
+
+</script>
+</head>
+<body ng-app="myfirstapp">
+
+    <div ng-controller="namedisplay">
+        <label>First Name: [[firstName]]</label><br/>
+        Last Name : <span ng-bind="lastName"></span><br/>
+        <label>Full Name : [[getFullName()]]</label>
+        <br/>
+        First Name : <input type="text" ng-model='firstName'>
+        Last Name : <input type="text" ng-model='lastName'>
+    </div>
+
+</body>
+</html>
+

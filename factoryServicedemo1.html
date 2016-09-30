@@ -1,0 +1,74 @@
+<!--http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/-->
+<!--http://code.ciphertrick.com/2015/04/29/ajax-requests-with-angularjs/-->
+<!--http://code.ciphertrick.com/2015/02/07/live-search-using-custom-filter-in-angular-js/-->
+<!--http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html-->
+<!--https://hello-angularjs.appspot.com/addtablerow-->
+
+
+<html ng-app="search">
+<head>
+
+<script src="angular.min.js"></script>
+<script>
+var app = angular.module("search",[]);
+
+
+// ********** Through Factory Processing ************
+
+app.controller("namefilter", function($scope,nameFactory){
+    $scope.developers = nameFactory.get_developers();
+    $scope._processType = nameFactory._processType;
+});
+
+
+app.factory("nameFactory", function(){
+    var _namesData = [{ name : 'Pavan', city : 'Guntur'}, { name : 'Megana', city : 'Nelmangla'}, { name : 'Mani', city : 'Darmapuri'},
+                        { name : 'Pradeep', city : 'Nelmangla'}, { name : 'Nani', city : 'Kenya'},{ name : 'Lakshmi', city : 'Penya'},
+                        { name : 'Girish', city : 'Tumkur'}, { name : 'Harish', city : 'Hassan'}, { name : 'Balu', city : 'Tirunalvali'},
+                        { name : 'Sridhar Selva', city : 'Bangalore'}, { name : 'Vinayak', city : 'Kerala'}];
+    var servicefactory = {};
+    servicefactory.get_developers = function(){
+        return _namesData;
+    }
+    servicefactory._processType = "Factory";
+    return servicefactory;
+})
+
+
+/*
+// ************* Through Service Processing ***********
+
+app.controller("namefilter", function($scope,nameService){
+    $scope.developers = nameService.get_developers();
+    $scope._processType = nameService._processType;
+});
+
+app.service("nameService",function(){
+    var _namesData = [{ name : 'Pavan', city : 'Guntur'}, { name : 'Megana', city : 'Nelmangla'}, { name : 'Mani', city : 'Darmapuri'},
+                        { name : 'Pradeep', city : 'Nelmangla'}, { name : 'Nani', city : 'Kenya'},{ name : 'Lakshmi', city : 'Penya'},
+                        { name : 'Girish', city : 'Tumkur'}, { name : 'Harish', city : 'Hassan'}, { name : 'Balu', city : 'Tirunalvali'},
+                        { name : 'Sridhar Selva', city : 'Bangalore'}, { name : 'Vinayak', city : 'Kerala'}];
+    this.get_developers = function(){
+        return _namesData
+    }
+    this._processType = "Service";
+});
+
+*/
+
+</script>
+
+</head>
+
+<body>
+    <div ng-controller="namefilter">
+        <h3>Search Developer Name through {{ _processType }}</h3>
+        <input type="text" ng-model="name">
+        <ul>
+            <li ng-repeat="dev in developers | filter:name | orderBy:'-city'">
+                {{ dev.name }} - {{ dev.city }}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

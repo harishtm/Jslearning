@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>JS - 2</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var simpleController = function($scope)
+{
+    $scope.firstName = '';
+    $scope.lastName = '';
+    $scope.getFullName = function()
+    {
+        return $scope.firstName + " " + $scope.lastName;
+    };
+};
+</script>
+</head>
+
+<body ng-app>
+    <div ng-controller="simpleController">
+        <strong>First Name : </strong>{{firstName}}<br/>
+        <strong>Last Name : </strong><span ng-bind="lastName"></span><br/>
+        <strong>Full Name : </strong>{{getFullName()}}<br/>
+        <hr/>
+        <label>Set First Name</label><input type="text" ng-model="firstName"><br/>
+        <label>Set Last Name</label><input type="text" ng-model="lastName"><br/>
+    </div>
+</body>
+</html>

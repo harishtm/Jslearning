@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Switch - Conditions</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.myData = {};
+            $scope.fetch = function(){
+                $scope.myData.switch = $scope.cnumber;
+            }
+        });
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="myCtrl" >
+        <input type="text" ng-model="cnumber">
+        <input type="button" value="Fetch Swith Case" ng-click="fetch()">
+        <div ng-switch on="myData.switch">
+            <div ng-switch-when="1">Shown when switch is 1</div>
+            <div ng-switch-when="2">Shown when switch is 2</div>
+            <div ng-switch-when="3">Shown when switch is 3</div>
+            <div ng-switch-when="4">Shown when switch is 4</div>
+            <div ng-switch-when="5">Shown when switch is 5</div>
+            <div ng-switch-default>Shown when switch is anything else than 1,2,3,4,5</div>
+        </div>
+    </div>
+</body>
+</html>

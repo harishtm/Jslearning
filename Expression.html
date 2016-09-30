@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<title>Evaluation of Expression</title>
+<script src="angular.min.js"></script>
+</head>
+
+
+<body>
+<div ng-app="" ng-init="one=1;two=2">
+    <input type="text" name="username" ng-model="username" autocomplete="off">
+
+    <p>Through Print Syntax</p>
+    <p>Your User Name is : {{username}}</p>
+
+    <p>Through Bind</p>
+    <p ng-bind="username"></p>
+    <p>{{ 1455969287 | date }}</p>
+    <p> {{ one / two }} </p>
+    <p> {{ {'name':'kumar','age':25}.name }} </p>
+</div>
+
+
+</body>
+</html>
