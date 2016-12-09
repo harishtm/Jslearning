@@ -1,0 +1,81 @@
+<!-- https://www.airpair.com/javascript/posts/services-in-angularjs-simplified-with-examples -->
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+<script>
+var myapp = angular.module("myFirst", [])
+myapp.controller('Ctrl', function($scope) {
+    $scope.country_list = ["India", "Australia", "Sri Lanka"];
+	$scope.state_list = []
+	$scope.getState = function(item){
+		$scope.state_list = []
+		if(item == 'India'){
+			$scope.state_list = ['Karnataka', 'Tamil Nadu', 'Telangana', 'Andra Pradesh', 'Kerala']
+		}
+		else if(item == 'Australia'){
+			$scope.state_list = ['Sydney', 'Melborne', 'Gaba', 'Perth', 'Adelade']
+		}
+		else if(item == 'Sri Lanka'){
+			$scope.state_list = ['Colombo','Premadasa']
+		}
+	}
+});
+
+myapp.service('Calculator', function(){
+	this.square = function(number){
+		return number * number
+	}
+})
+
+myapp.factory('stringManipulation', function(){
+	var rev = function reverse(s){
+		var o = '';
+		for(var i=s.length-1;i>=0;i--)	
+			o += s[i]
+		return o;
+	}
+	return {
+		reverseString : function reverseString(name){
+			return rev(name);		
+		}
+	}
+});
+
+myapp.controller('CalculatorController', function($scope, Calculator, stringManipulation){
+	$scope.findSquare = function(){
+		$scope.answer = Calculator.square($scope.number)
+	}
+	$scope.findReverse = function(){
+		$scope.reversename = stringManipulation.reverseString($scope.name)
+	}
+});
+
+			
+</script>
+</head>
+<body ng-app="myFirst">
+
+	<div ng-controller="Ctrl">
+		<select ng-model="country" ng-options="ct for ct in country_list" ng-change="getState(country)">
+			<option value="">Select Country</option>
+		</select>
+		<select ng-model="state" ng-options="st for st in state_list">
+			<option value="">Select State</option>
+		</select>
+	</div>
+
+	<div ng-controller="CalculatorController" ng-init="number=0">
+		Enter the Number <input type="text" ng-model="number">
+		<button ng-click="findSquare()">Square</button>
+		<div> {{ answer }}</div>
+		Enter the name <input type="text" ng-model="name">
+		<button ng-click="findReverse()">Reverse Name</button>
+		<div> {{ reversename }} </div>
+	</div>
+
+	<!--div ng-controller="stringController">
+		
+	</div-->
+</body>
+</html>
