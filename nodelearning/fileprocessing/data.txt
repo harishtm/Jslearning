@@ -1,0 +1,3 @@
+sample text to print
+Hi
+Test the text
