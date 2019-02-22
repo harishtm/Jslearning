@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Complex Presentation Babel</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        function init(){
+            var app = (
+                    <div>
+                        <h1> Welcome to React Babel </h1>
+                        <hr/>
+                        <section>
+                            <h3>Introduction to Babel</h3>
+                            <p>Learning React</p>
+                        </section>
+                        <section>
+                            <h3>Advantages</h3>
+                            <ol>
+                                <li>Simplicity</li>
+                                <li>Declarative</li>
+                            </ol>
+                        </section>
+                    </div>
+                );
+            ReactDOM.render(app, document.getElementById('root'))
+        }
+        init();
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
