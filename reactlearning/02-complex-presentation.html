@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>React Complex Representation</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script type="text/javascript">
+        // creating elements via react dom
+        (function(){
+            window.addEventListener('DOMContentLoaded', init);
+
+            function init(){
+                var app = React.createElement('div', null,
+                                React.createElement('h1', null, 'Welcome to React JS'),
+                                React.createElement('hr'),
+                                React.createElement('section', null, 
+                                    React.createElement('h3', null, 'Introduction'),
+                                    React.createElement('p', null, 'Introduction to React'),
+                                    React.createElement('p', null, 'Learning React'),
+                                ),
+                                React.createElement('section', null,
+                                    React.createElement('h3', null, 'Advantages'),
+                                    React.createElement('ol', null,
+                                        React.createElement('li', null, 'Simplicity'),
+                                        React.createElement('li', null, 'Declarative'),
+                                    )
+                                )
+                        );
+
+                ReactDOM.render(app, document.getElementById('root'))
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
