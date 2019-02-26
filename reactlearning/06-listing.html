@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Listing </title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class Product extends React.Component {
+            render () {
+                let productNames = [ 'Books', 'Cloths', 'Shoes'];
+                let productItems = productNames.map(
+                                    (name, index) => (<li key={index}> {name} </li>)
+                                   );
+                return (
+                    <div>
+                        <h3> Products </h3>
+                        <hr/>
+                        <ol>
+                            { productItems }
+                        </ol>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Product/>, document.getElementById('content'));
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>
