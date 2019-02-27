@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bug tracker</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class EventEmitter {
+            constructor () {
+                this._subscribers = [];
+            }
+            subscribe(callback) {
+                this._subscribers.push(callback)
+            }
+            triggerChange() {
+                this._subscribers.forEach(callback => callback());
+            }
+        }
+
+        class BugsCollection extends EventEmitter {
+            constructor () {
+                super ();
+                this._list = [];
+            }
+
+            add(bugName) {
+                this._list.push(bugName)
+                this.triggerChange();
+            }
+
+            getAll() {
+                return [...this._list];
+            }
+        }
+
+        class BugItem extends React.Component {
+            onBugClick () {
+                var bug = this.props.data;
+                bug.isClosed = !bug.isClosed;
+                console.log(bug);
+            }
+
+            render () {
+                var bug = this.props.data;
+                return (
+                    <li>
+                        <span className="bugname" onClick={this.onBugClick.bind(this)}> {bug.name} </span>
+                        <div className="datetime"> { bug.createdAt.toString() } </div>
+                        <div> { bug.isClosed.toString() } </div>
+                        <hr/>
+                    </li>
+                )
+            }
+        }
+
+        class BugTracker extends React.Component {
+
+            onAddNewClick() {
+                let bugName = this.refs.txtBugName.value;
+                var newBug = {
+                        name : bugName,
+                        createdAt : new Date(),
+                        isClosed : false
+                };
+                this.props.bugs.add(newBug);
+            }
+
+            render () {
+
+                let bugList = this.props.bugs.getAll();
+                let bugItems = bugList.map((bug, index) => (
+                    <BugItem data={bug} key={index}></BugItem>
+                ));
+                return (
+                    <div>
+                        <section className="stats">
+                            <span className="closed">2</span>
+                            <span> / </span>
+                            <span> {bugList.length} </span>
+                        </section>
+
+                        <section className="add">
+                            <label htmlFor="">Bug : </label>
+                            <input type="text" ref="txtBugName"/>
+                            <input type="button" value="Add New" onClick={this.onAddNewClick.bind(this)} />
+                        </section>
+
+                        <section className="list">
+                            <ol>
+                                { bugItems }
+                            </ol>
+                            <input type="button" value="Remove" />
+                        </section>
+                    </div>
+                )
+            }
+        }
+
+        let bugsCollection = new BugsCollection();
+        function renderApp() {
+            ReactDOM.render(<BugTracker bugs={bugsCollection}></BugTracker>, document.getElementById("app"))
+        }
+
+        bugsCollection.subscribe(renderApp);
+        renderApp();
+
+    </script>
+</head>
+<body>
+    <dir id="app"></dir>
+</body>
+</html>
