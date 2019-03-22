@@ -1,0 +1,29 @@
+counter-app
+=====================================================================================
+Step 1: sudo create-react-app counter-app
+
+Step 2: cd counter-app
+
+Step 3: npm i bootstrap@4.1.1
+
+Step 4: npm start
+
+Local:            http://localhost:3000/
+On Your Network:  http://172.30.66.40:3000/
+
+=====================================================================================
+Note: sudo chown -R user counter-app #To enable the permission to your react app
+
+node -v
+    v11.12.0
+npm -v
+    6.7.0
+
+=====================================================================================
+Errors encountered
+
+Error : error enospc system limit for number of file watchers reached watch
+
+Solution: Run the below command to increase watcher
+
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p (https://github.com/gatsbyjs/gatsby/issues/11406)
