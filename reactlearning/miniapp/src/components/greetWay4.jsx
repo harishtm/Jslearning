@@ -5,7 +5,7 @@ import GreetWay2 from './greetWay2';
 class GreetWay4 extends Component {
     render () {
         return (
-            <Greeter message="Welcome to react"></Greeter>
+            <Greeter message="Welcome to react way4"></Greeter>
         )
     }
 }

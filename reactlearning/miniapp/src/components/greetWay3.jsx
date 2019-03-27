@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class GreetWay3 extends Component {
     render () {
-        const msg = "Welcome to React";
+        const msg = "Welcome to React way3";
         return (
             <Greeting message={msg}></Greeting>
         )

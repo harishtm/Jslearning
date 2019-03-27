@@ -12,7 +12,7 @@ class SimpleApp extends Component{
 
 class Greeting extends Component {
     render () {
-        const greeting = "Welcome to React"
+        const greeting = "Welcome to React Way1"
         return (
             <h4>{ greeting }</h4>
         )
