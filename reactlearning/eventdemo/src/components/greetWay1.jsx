@@ -20,7 +20,7 @@ class GreeterWay1 extends Component {
         return (
             <div>
                 <Greeting message={msg} isShow={ this.state.isShow }></Greeting>
-                <button onClick={this.toggleShow} type="button">Toggle Show</button>
+                <button onClick={this.toggleShow} type="button">Toggle Show Way 1</button>
             </div>
         )
     }
