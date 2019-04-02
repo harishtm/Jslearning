@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// How to pass Props from child to parent Component?
+
 class GreeterWay3 extends Component {
     
     constructor(props){

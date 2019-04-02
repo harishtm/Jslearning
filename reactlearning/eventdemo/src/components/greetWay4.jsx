@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// Props can be state, props, or derived properties
+
 class GreeterWay4 extends Component {
     render () {
         const params = {
