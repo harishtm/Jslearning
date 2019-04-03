@@ -9,6 +9,7 @@ import GreeterWay3 from './components/greetWay3';
 import GreeterWay4 from './components/greetWay4';
 import GreeterWay5 from './components/greetWay5';
 import GreeterWay6 from './components/greetWay6';
+import GreeterWay7 from './components/greetWay7';
 
 
 ReactDOM.render(<GreeterWay1 />, document.getElementById('way1'));
@@ -17,6 +18,7 @@ ReactDOM.render(<GreeterWay3/>, document.getElementById('way3'));
 ReactDOM.render(<GreeterWay4/>, document.getElementById('way4'));
 ReactDOM.render(<GreeterWay5/>, document.getElementById('way5'));
 ReactDOM.render(<GreeterWay6/>, document.getElementById('way6'));
+ReactDOM.render(<GreeterWay7/>, document.getElementById('way7'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
