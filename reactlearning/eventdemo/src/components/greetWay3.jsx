@@ -27,8 +27,8 @@ class GreeterWay3 extends Component {
     }
 }
 
-const Button = ({onclick}) => (
-    <button onClick={onclick} type="button">
+const Button = ({onClick}) => (
+    <button onClick={onClick} type="button">
     Toggle Show Way3
     </button>
 );
