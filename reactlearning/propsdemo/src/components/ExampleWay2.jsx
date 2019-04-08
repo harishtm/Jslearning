@@ -15,7 +15,10 @@ class ExampleWay2 extends Component {
     render() {
         const user = this.state;
         return (
-            <User user={user}></User>
+            <div>
+                <h4>Way2</h4>
+                <User user={user}></User>
+            </div>
         )
     }
 }

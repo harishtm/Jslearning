@@ -20,6 +20,7 @@ class ExampleWay1 extends Component{
         const msg = 'React Props example'
         return(
             <div>
+                <h4>Way1</h4>
                 <Greeting message={msg} isShow={ this.state.isShow }></Greeting>
                 <Button onClick={this.toggleShow}>Toggle HTML Text</Button>
             </div>
