@@ -27,3 +27,9 @@ Error : error enospc system limit for number of file watchers reached watch
 Solution: Run the below command to increase watcher
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p (https://github.com/gatsbyjs/gatsby/issues/11406)
+
+
+=====================================================================================
+Few important Links
+
+https://www.robinwieruch.de/react-pass-props-to-component/
