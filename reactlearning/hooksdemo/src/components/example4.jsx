@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 
+// You are able to remove an item from the list based on the identifier you pass to the handler.
+// The handler then filters the list and sets the new state of the list with the setList function.
+
 const INITIAL_LIST = [
     {
         id: '0',
