@@ -1,3 +1,5 @@
+// https://reacttraining.com/react-router/web/example/auth-workflow
+
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
