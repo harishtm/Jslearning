@@ -42,7 +42,7 @@ export default class PersonList extends Component {
                    </thead>
                    <tbody>
                        { this.state.persons.map(person => 
-                                                <tr>
+                                                <tr key={person.id}>
                                                     <td>{person.id}</td>
                                                     <td>{person.name}</td>
                                                     <td>{person.username}</td>
