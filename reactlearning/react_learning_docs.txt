@@ -33,3 +33,5 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 Few important Links
 
 https://www.robinwieruch.de/react-pass-props-to-component/
+
+https://alligator.io/react/responsive-websites-without-css/
