@@ -37,3 +37,19 @@ https://www.robinwieruch.de/react-pass-props-to-component/
 https://alligator.io/react/responsive-websites-without-css/
 
 https://appdividend.com/2018/05/30/react-axios-tutorial-example-from-scratch/
+
+https://www.valentinog.com/blog/drf/
+
+https://github.com/valentinogagliardi/django-drf-react-quickstart
+
+https://github.com/ReactBangalore/animated-examples/blob/master/App.js
+
+=====================================================================================
+
+Topics to Learn
+
+react-router v/s react-router-dom
+
+Better to use react-router-dom
+
+
